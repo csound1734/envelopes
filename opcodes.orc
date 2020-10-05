@@ -1,7 +1,7 @@
 
- opcode "trigPhapd", k, kkPOOOO
-kfreq, ktrig, kexp, kpdclipw, kpdclipc, kpdhf, kpdhf xin
-k1 loopseg kfreq, ktrig, 0, 0,1,1,0
+ opcode "trigPhapd", k, kkPOOOOO
+kfreq, ktrig, kexp, kpdclipw, kpdclipc, kpdhf, kpdhf, kshp xin
+k1 loopseg kfreq, ktrig, 0, 0,1,1,kshp;for ramp set kshp=0, for triangle kshp=1 etc
 k2 expcurve k1, kexp 
 k3 pdhalf k2, kpdhf
 k4 pdhalfy k3, pdhy 
