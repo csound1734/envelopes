@@ -9,9 +9,23 @@ k5 pdclip k4, kpdclipw, kpdclipc
 xout k5
  endop
 
- opcode kmap, k, kiOOo ;use an f-table as a transfer function to remap a normalized k-signal
+ opcode "kmap", k, kiOOo ;use an f-table as a transfer function to remap a normalized k-signal
 knormin, ift, kDC, kscale, ioffset xin ;normalized signal input
 kres table knormin, ift, 1, ioffset, 1 ;read table / norm. index, wrap on
+kres = kDC+kres*kscale
+xout kres
+ endop
+
+ opcode "kmapi", k, kiOOo ;use an f-table as a transfer function to remap a normalized k-signal
+knormin, ift, kDC, kscale, ioffset xin ;normalized signal input
+kres tablei knormin, ift, 1, ioffset, 1 ;read table / norm. index, wrap on
+kres = kDC+kres*kscale
+xout kres
+ endop
+
+ opcode "kmap3", k, kiOOo ;use an f-table as a transfer function to remap a normalized k-signal
+knormin, ift, kDC, kscale, ioffset xin ;normalized signal input
+kres table3 knormin, ift, 1, ioffset, 1 ;read table / norm. index, wrap on
 kres = kDC+kres*kscale
 xout kres
  endop
