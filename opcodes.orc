@@ -8,3 +8,10 @@ k4 pdhalfy k3, pdhy
 k5 pdclip k4, kpdclipw, kpdclipc
 xout k5
  endop
+
+ opcode kmap, k, kiOOo ;use an f-table as a transfer function to remap a normalized k-signal
+knormin, ift, kDC, kscale, ioffset xin ;normalized signal input
+kres table knormin, ift, 1, ioffset, 1 ;read table / norm. index, wrap on
+kres = kDC+kres*kscale
+xout kres
+ endop
