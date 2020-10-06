@@ -29,3 +29,30 @@ kres table3 knormin, ift, 1, ioffset, 1 ;read table / norm. index, wrap on
 kres = kDC+kres*kscale
 xout kres
  endop
+
+ opcode "p3xfrom1_a", a, i
+ifinalval xin
+ares expon 1, p3, ifinalval
+xout ares
+ endop
+ 
+ opcode "p3xfrom1_k", k, i
+ifinalval xin
+kres expon 1, p3, ifinalval
+xout kres
+ endop
+ 
+ opcode "p3tsegnorm_a", a, i
+itype xin
+ares transeg 0, p3, itype, 1
+xout ares
+ endop
+ 
+ opcode "p3tsegnorm_k", k, i
+itype xin
+kres transeg 0, p3, itype, 1
+xout kres
+ endop
+ 
+ 
+ 
