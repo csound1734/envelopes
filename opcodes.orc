@@ -54,5 +54,17 @@ kres transeg 0, p3, itype, 1
 xout kres
  endop
  
+ opcode "p3lattack_a", k, i
+iatk xin
+ares linseg 0, iatk, 1, p3-atk, 1
+xout ares
+ endop
+ 
+ opcode "p3lattack_k", k, i
+iatk xin
+kres linseg 0, iatk, 1, p3-atk, 1
+xout kres
+ endop
+ 
  
  
