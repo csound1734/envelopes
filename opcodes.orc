@@ -20,41 +20,53 @@ kres = kDC+kres*kscale
 xout kres
  endop
 
- opcode "p3xfrom1_a", a, i
-ifinalval xin
-ares expon 1, p3, ifinalval
+ opcode "p3fallx_a", a, io
+ifinalval, idelay xin
+ares expon 1, idelay, 1, p3-idelayt=, ifinalval
 xout ares
  endop
  
- opcode "p3xfrom1_k", k, i
-ifinalval xin
-kres expon 1, p3, ifinalval
+  opcode "p3fallx_k", k, io
+ifinalval, idelay xin
+kres expon 1, idelay, 1, p3-idelayt=, ifinalval
 xout kres
  endop
  
- opcode "p3tsegnorm_a", a, i
-itype xin
-ares transeg 0, p3, itype, 1
+ opcode "p3rampt_a", a, io
+itype, idelay xin
+ares transeg 0, idelay, 0, 0, p3-idelay, itype, 1
 xout ares
  endop
  
- opcode "p3tsegnorm_k", k, i
-itype xin
-kres transeg 0, p3, itype, 1
+ opcode "p3rampt_k", a, io
+itype, idelay xin
+kres transeg 0, idelay, 0, 0, p3-idelay, itype, 1
 xout kres
  endop
  
- opcode "p3lattack_a", k, i
-iatk xin
-ares linseg 0, iatk, 1, p3-atk, 1
+ opcode "attackl_a", k, io
+iatk, idelay xin
+ares linseg 0, idelay, 0, iatk, 1, p3-(iatk+idelay), 1
 xout ares
  endop
- 
- opcode "p3lattack_k", k, i
-iatk xin
-kres linseg 0, iatk, 1, p3-atk, 1
+
+ opcode "attackl_k", k, io
+iatk, idelay xin
+kres linseg 0, idelay, 0, iatk, 1, p3-(iatk+idelay), 1
 xout kres
  endop
- 
+
+ opcode "attackt_a", k, ipo
+iatk, itype, idelay xin
+ares transeg 0, idelay, 0, 0, iatk, itype, 1, p3-(iatk+idelay), 0, 1
+xout ares
+ endop
+
+ opcode "attackt_k", k, ipo
+iatk, itype, idelay xin
+kres linseg 0, idelay, 0, 0, iatk, itype, 1, p3-(iatk+idelay), 0, 1
+xout kres
+ endop
+
  
  
