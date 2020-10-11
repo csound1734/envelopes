@@ -68,5 +68,11 @@ kres linseg 0, idelay, 0, 0, iatk, itype, 1, p3-(iatk+idelay), 0, 1
 xout kres
  endop
 
+ opcode "glissp3", k, ii
+icps, isemitonesend xin
+ksemitones linseg 0, p3, isemitonesend
+kcps = icps*semitone(ksemitones)
+xout kcps
+ endop
  
  
