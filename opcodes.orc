@@ -75,4 +75,11 @@ kcps = icps*semitone(ksemitones)
 xout kcps
  endop
  
+ opcode wubenvelope, a, iipoo
+iatk1, irelease, iatk2, istart, itype xin
+aenv adsr .01, 0, 1, .05
+aenv2 transeg istart, iatk2, itype, 1, 10000, 0, 1
+xout aenv*aenv2
+ endop
+ 
  
