@@ -22,13 +22,13 @@ xout kres
 
  opcode "p3fallx_a", a, io
 ifinalval, idelay xin
-ares expon 1, idelay, 1, p3-idelayt=, ifinalval
+ares expseg 1, idelay, 1, p3-idelay, ifinalval+.00001
 xout ares
  endop
  
   opcode "p3fallx_k", k, io
 ifinalval, idelay xin
-kres expon 1, idelay, 1, p3-idelayt=, ifinalval
+kres expseg 1, idelay, 1, p3-idelay, ifinalval+.00001
 xout kres
  endop
  
@@ -38,13 +38,13 @@ ares transeg 0, idelay, 0, 0, p3-idelay, itype, 1
 xout ares
  endop
  
- opcode "p3rampt_k", a, io
+ opcode "p3rampt_k", k, io
 itype, idelay xin
 kres transeg 0, idelay, 0, 0, p3-idelay, itype, 1
 xout kres
  endop
  
- opcode "attackl_a", k, io
+ opcode "attackl_a", a, io
 iatk, idelay xin
 ares linseg 0, idelay, 0, iatk, 1, p3-(iatk+idelay), 1
 xout ares
@@ -56,7 +56,7 @@ kres linseg 0, idelay, 0, iatk, 1, p3-(iatk+idelay), 1
 xout kres
  endop
 
- opcode "attackt_a", k, ipo
+ opcode "attackt_a", a, ipo
 iatk, itype, idelay xin
 ares transeg 0, idelay, 0, 0, iatk, itype, 1, p3-(iatk+idelay), 0, 1
 xout ares
